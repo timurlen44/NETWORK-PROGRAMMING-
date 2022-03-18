@@ -1,16 +1,14 @@
 import socket
-import time
-
-Client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-Client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-Client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-Client.settimeout(5)
-message = b"BROADCAST"
-print("Client begin.")
+Server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+Server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+Server.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+Server.bind(("", 54000))
+message = b"REPLY TO BROADCAST"
+print("Server begin.")
 while True:
-    Client.sendto(message, ('<broadcast>', 54000))
-    msg, addr = Client.recvfrom(1024)
-    print("Server IP Address: {}".format(addr[0]))
-    print("Server Port: {}".format(addr[1]))
-    print("Received Message From Server: {} ".format(msg))
-    time.sleep(5)
+    data, addr = Server.recvfrom(1024)
+    Server.sendto(message, addr)
+    print("Client IP Address: {}".format(addr[0]))
+    print("Client Port: {}".format(addr[1]))
+    print("Received Message From Client: {} ".format(data))
+
