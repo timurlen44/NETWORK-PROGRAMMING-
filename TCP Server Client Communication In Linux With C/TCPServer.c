@@ -7,7 +7,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-#define MAX 80
+#define MAX 1024
 #define PORT 8080
 #define SA struct sockaddr
 char buff[MAX];
