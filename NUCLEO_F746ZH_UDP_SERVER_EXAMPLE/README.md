@@ -22,8 +22,9 @@
 
 
 <header>
-  <h1>ETH Settings/h1>
+  <h1>ETH Settings</h1>
 </header>
+  
 ![3_2](https://github.com/user-attachments/assets/a8ea7928-58bb-472c-b3bc-5882515e09cf)
 ![3_3](https://github.com/user-attachments/assets/49a569c8-58f6-4ca7-b324-2f405556f4ed)
 ![12](https://github.com/user-attachments/assets/0fda4ce4-4655-48fd-a290-dfc5ecab95a9)
@@ -58,5 +59,4 @@
   <h1>Hercules UDP Client Test 2</h1>
 </header>
 
-![10](https://github.com/user-attachments/assets/5bf01987-2166-47b7-b15a-d053ccc72d2f)
-
+![13](https://github.com/user-attachments/assets/f1af4a75-6a00-4217-9e5b-709d0f7bdf78)
