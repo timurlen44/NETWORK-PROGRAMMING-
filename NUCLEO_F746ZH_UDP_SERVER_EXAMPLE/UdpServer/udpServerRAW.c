@@ -38,44 +38,6 @@ uint8_t data[50];
 
 void UDPReceiveCallBack(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port);
 
-
-/* IMPLEMENTATION FOR UDP Server :   source:https://www.geeksforgeeks.org/udp-server-client-implementation-c/
-
-1. Create UDP socket.
-2. Bind the socket to server address.
-3. Wait until datagram packet arrives from client.
-4. Process the datagram packet and send a reply to client.
-5. Go back to Step 3.
-*/
-
-void udpServer_init(void)
-{
-	// UDP Control Block structure
-   struct udp_pcb *upcb;
-   err_t err;
-
-   /* 1. Create a new UDP control block  */
-   upcb = udp_new();
-
-   /* 2. Bind the upcb to the local port */
-   ip_addr_t myIPADDR;
-   IP_ADDR4(&myIPADDR, IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
-
-   err = udp_bind(upcb, &myIPADDR, 7);  // 7 is the server UDP port
-
-
-   /* 3. Set a receive callback for the upcb */
-   if(err == ERR_OK)
-   {
-	   udp_recv(upcb, UDPReceiveCallBack, NULL);
-   }
-   else
-   {
-	   udp_remove(upcb);
-   }
-}
-
-
 bool initUDPServer(uint8_t *ipAddr, uint16_t port)
 {
 
