@@ -45,8 +45,6 @@ bool initUDPServer(uint8_t *ipAddr, uint16_t port)
    return status;
 }
 
-// udp_receive_callback will be called, when the client sends some data to the server
-/* 4. Process the datagram packet and send a reply to client. */
 void UDPReceiveCallBack(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
 	/* Get the IP of the Client */
