@@ -20,7 +20,7 @@ void UDPReceiveCallBack(void *arg, struct udp_pcb *upcb, struct pbuf *p, const i
 bool initUDPServer(uint8_t *ipAddr, uint16_t port)
 {
 
-   bool status = false;
+   bool status = true;
    struct udp_pcb *upcb;
    err_t err;
 
