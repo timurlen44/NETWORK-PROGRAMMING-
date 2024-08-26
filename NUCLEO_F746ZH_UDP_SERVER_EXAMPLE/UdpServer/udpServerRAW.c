@@ -17,19 +17,15 @@ uint8_t data[50];
 
 void UDPReceiveCallBack(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port);
 
-bool initUDPServer(uint8_t *ipAddr, uint16_t port)
+bool initUDPServer(uint16_t port)
 {
 
-   bool status = true;
+   bool status = false;
    struct udp_pcb *upcb;
    err_t err;
 
    upcb = udp_new();
-
-   ip_addr_t IPADDR;
-   IP_ADDR4(&IPADDR, ipAddr[0], ipAddr[1], ipAddr[2], ipAddr[3]);
-
-   err = udp_bind(upcb, &IPADDR, port);
+   err = udp_bind(upcb, IP4_ADDR_ANY, port);
 
    if(err == ERR_OK)
    {
