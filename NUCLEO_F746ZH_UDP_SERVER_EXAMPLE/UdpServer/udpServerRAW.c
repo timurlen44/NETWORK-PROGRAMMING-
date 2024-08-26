@@ -47,19 +47,10 @@ bool initUDPServer(uint8_t *ipAddr, uint16_t port)
 
 void UDPReceiveCallBack(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
-	/* Get the IP of the Client */
 	receivedPacketLength_u16 = p->tot_len;
 	clientPort = port;
 	memcpy(data,p->payload,receivedPacketLength_u16);
-
-	/*
-	uint8_t* dataP_c = (uint8_t*)p->payload;
-	for(uint16_t i = 0; i < 50 ; i++)
-	{
-		data[i] = dataP_c[i];
-	}
-	*/
-
+	
 	clientIPAddr[0] = ip4_addr1(addr);
 	clientIPAddr[1] = ip4_addr2(addr);
 	clientIPAddr[2] = ip4_addr3(addr);
