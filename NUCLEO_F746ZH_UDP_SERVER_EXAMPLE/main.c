@@ -55,7 +55,7 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-extern uint8_t IP_ADDRESS[4];
+
 /* USER CODE END 0 */
 
 /**
@@ -88,7 +88,7 @@ int main(void)
   MX_GPIO_Init();
   MX_LWIP_Init();
   /* USER CODE BEGIN 2 */
-  initUDPServer(IP_ADDRESS, 10);
+  initUDPServer(10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
